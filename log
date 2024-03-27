@@ -76,3 +76,25 @@ Wed 27 Mar 2024 08:01:38 PM UTC:
  tests:  12|0
 total_score: 70/70
 def34dd
+Wed 27 Mar 2024 08:02:20 PM UTC: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+list.c:40:8: error: conflicting types for ‘firstList’; have ‘List *(List *)’ {aka ‘struct List *(struct List *)’}
+   40 | List * firstList(List * list)
+      |        ^~~~~~~~~
+In file included from list.c:4,
+                 from test.c:5:
+list.h:8:8: note: previous declaration of ‘firstList’ with type ‘void *(List *)’ {aka ‘void *(struct List *)’}
+    8 | void * firstList(List * list);
+      |        ^~~~~~~~~
+test.c: In function ‘test_first_next’:
+test.c:101:13: error: initialization of ‘int *’ from incompatible pointer type ‘List *’ {aka ‘struct List *’} [-Werror=incompatible-pointer-types]
+  101 |     int*j = firstList(L);
+      |             ^~~~~~~~~
+test.c:122:7: error: assignment to ‘int *’ from incompatible pointer type ‘List *’ {aka ‘struct List *’} [-Werror=incompatible-pointer-types]
+  122 |     j = firstList(L);
+      |       ^
+cc1: all warnings being treated as errors
+Compilation failed
+e642452
