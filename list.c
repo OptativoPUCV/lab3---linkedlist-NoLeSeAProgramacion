@@ -37,7 +37,7 @@ List * createList()
     return new;
 }
 
-List * firstList(List * list)
+void * firstList(List * list)
 {
     if(list == NULL)
     {
