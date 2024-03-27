@@ -43,6 +43,7 @@ void * firstList(List * list)
     {
         return NULL;
     }
+  
     if(list -> head == NULL)
     {
         return NULL;
@@ -59,14 +60,17 @@ void * nextList(List * list)
     {
         return NULL;
     }
+  
     if(list -> current == NULL)
     {
         return NULL;
     }
+  
     if(list -> current -> next == NULL) 
     {
         return NULL;
     }
+  
     list -> current = list -> current -> next;
     return(list -> current -> data);
 }
@@ -77,10 +81,12 @@ void * lastList(List * list)
     {
         return NULL;
     }
+  
     if(list -> tail == NULL)
     {
         return NULL;
     }
+  
     list -> current = list -> tail;
     return(list -> current -> data);
 }
@@ -138,18 +144,23 @@ void pushCurrent(List * list, void * data)
     {
         return;
     }
+  
     if(list -> current == NULL)
     {
         return;
     }
+  
     Node * new = createNode(data);
     new -> next = list -> current -> next;
+  
     if(list -> current -> next != NULL)
     {
         list -> current -> next -> prev = new;
     }
+  
     new -> prev = list -> current;
     list -> current -> next = new;
+  
     if(new -> next == NULL)
     {
         list -> tail = new;
@@ -174,6 +185,7 @@ void * popCurrent(List * list)
     {
         return NULL;
     }
+  
     if(list -> current == NULL)
     {
         return NULL;
@@ -183,7 +195,7 @@ void * popCurrent(List * list)
   
     if(list -> current -> prev != NULL)
     {
-        list -> current -> prev -> next = list -> current -> next;
+        list -> current -> prev  = list -> current -> next;
     }
   
     if(list -> current -> next != NULL)
