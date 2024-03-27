@@ -126,8 +126,9 @@ void pushFront(List * list, void * data)
   
 
 
-void pushBack(List * list, void * data) {
-    list->current = list->tail;
+void pushBack(List * list, void * data)
+{
+    list -> current = list -> tail;
     pushCurrent(list,data);
 }
 
@@ -155,22 +156,27 @@ void pushCurrent(List * list, void * data)
     }
 }
 
-void * popFront(List * list) {
+void * popFront(List * list)
+{
     list->current = list->head;
     return popCurrent(list);
 }
 
-void * popBack(List * list) {
+void * popBack(List * list)
+{
     list->current = list->tail;
     return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
+void * popCurrent(List * list)
+{
     return NULL;
 }
 
-void cleanList(List * list) {
-    while (list->head != NULL) {
+void cleanList(List * list)
+{
+    while (list->head != NULL)
+    {
         popFront(list);
     }
 }
